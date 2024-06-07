@@ -1,0 +1,22 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="assets/icons/boat.png" />
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <b>{{userInfo.firstName}}  {{userInfo.lastName}} </b>
+        <small
+          >
+          {{ review.createdAt | date: "short" }} |
+        </small>
+        <i class="fa fa-star" *ngFor="let n of numSequence(review.rating)"></i>
+
+        <br />
+        {{ review.comment }}
+      </p>
+    </div>
+  </div>
+</article>

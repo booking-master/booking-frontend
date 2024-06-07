@@ -1,0 +1,27 @@
+<div class="body-wrapper">
+  <gap></gap>
+  <div
+    class="
+      is-flex is-justify-content-center is-align-content-center
+      content
+      has-text-centered
+      is-medium
+      my-5
+    "
+  >
+    <div class="max-width-700">
+      <div *ngIf="registrationVerified; else notConfirmed">
+        <h1>Thank you for your registration!</h1>
+        <h3>Your email is successfully confirmed.</h3>
+      </div>
+      <ng-template #notConfirmed>
+        <h1>Confirmation of email is not successful.</h1>
+      </ng-template>
+      <hr />
+      <img
+        class="max-width-400 my-5"
+        src="/assets/icons/fishing booker logo title.png"
+      />
+    </div>
+  </div>
+</div>

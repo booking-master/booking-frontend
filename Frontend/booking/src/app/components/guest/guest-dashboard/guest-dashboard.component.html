@@ -1,0 +1,112 @@
+<div class="columns db-container">
+  <div class="colum is-two-fifths px-6 pt-5 side-menu">
+    <aside class="menu">
+      <p class="menu-label">General</p>
+      <ul class="menu-list">
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'PERSONAL_INFO' }"
+            (click)="changeTab('PERSONAL_INFO')"
+            >Personal Info</a
+          >
+        </li>
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'SETTINGS' }"
+            (click)="changeTab('SETTINGS')"
+            >Settings</a
+          >
+        </li>
+
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'DELETE_ACCOUNT' }"
+            (click)="changeTab('DELETE_ACCOUNT')"
+            >Delete my Account</a
+          >
+        </li>
+
+
+
+      </ul>
+      <p class="menu-label">Find Reservations</p>
+      <ul class="menu-list">
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'ACCOMODATION_RESERVATIONS' }"
+            (click)="changeTab('ACCOMODATION_RESERVATIONS')"
+            >Accommodation Reservations</a
+          >
+        </li>
+
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'RESERVATION_REQUESTS' }"
+            (click)="changeTab('RESERVATION_REQUESTS')"
+            >Reservation Requests</a
+          >
+        </li>
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'REVIEW' }"
+            (click)="changeTab('REVIEW')"
+            >Leave a Review</a
+          >
+        </li>
+      </ul>
+      <p class="menu-label">Commerce</p>
+      <ul class="menu-list">
+
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'INVOICES' }"
+            (click)="changeTab('INVOICES')"
+            >My Invoices</a
+          >
+        </li>
+        <li>
+          <a
+            [ngClass]="{ 'is-active': activeTab === 'REVIEW_COMPLAINT' }"
+            (click)="changeTab('REVIEW_COMPLAINT')"
+            >Transactions In Progress</a
+          >
+        </li>
+
+      </ul>
+    </aside>
+  </div>
+
+  <div class="column db-content">
+    <div class="hero is-primary">
+      <div class="hero-body">
+        <p class="title">Welcome, {{ userPersonalInfo.firstName }} {{ userPersonalInfo.lastName }}</p>
+        <p class="subtitle">Guest Dashboard</p>
+      </div>
+    </div>
+    <div class="m-5">
+      <div *ngIf="activeTab == 'PERSONAL_INFO'">
+        <app-personal-info [client]="userPersonalInfo"></app-personal-info>
+      </div>
+      <div *ngIf="activeTab == 'SETTINGS'">
+        <app-settings [userId]="userPersonalInfo.id"></app-settings>
+      </div>
+
+
+      <div *ngIf="activeTab == 'RESERVATION_REQUESTS'">
+        <app-browse-reservation-requests></app-browse-reservation-requests>
+      </div>
+
+      <div *ngIf="activeTab == 'ACCOMODATION_RESERVATIONS'">
+        <app-browse-reservations></app-browse-reservations>
+      </div>
+
+      <div *ngIf="activeTab == 'INVOICES'">
+        <app-browse-reservation-invoices></app-browse-reservation-invoices>
+      </div>
+
+      <div *ngIf="activeTab == 'DELETE_ACCOUNT'">
+        <app-delete-account></app-delete-account>
+      </div>
+    </div>
+  </div>
+</div>
